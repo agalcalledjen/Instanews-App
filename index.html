@@ -11,14 +11,14 @@
     crossorigin="anonymous">
 
   <!-- Main Style -->
-  <link rel="stylesheet" type="text/css" href="css/reset.css">
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <!-- <link rel="stylesheet" type="text/css" href="css/reset.css"> -->
+  <link rel="stylesheet" type="text/css" href="build/css/style.min.css">
 
   <!-- link jQuery CDN from Google -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
   <!-- link js -->
-  <script src="index.js"></script>
+  <script src="build/js/script.min.js"></script>
 
   <title>Instanews App</title>
 </head>
@@ -31,17 +31,18 @@
     <p>Choose a section:</p>
     <nav class="navbar">
       <div class="dropdown">
-        <button class="dropbtn" onclick="myFunction()">Sections...
-          <i class="fas fa-sort"></i>
+        <button class="dropbtn">
+          Sections...
+          <i class=" fas fa-sort"></i>
         </button>
-        <div class="dropdown-content" id="content-title">
-          <a href="#">Home</a>
-          <a href="#">Arts</a>
-          <a href="#">Business</a>
-          <a href="#">Sports</a>
-          <a href="#">Technology</a>
-          <a href="#">Fashion</a>
-        </div>
+        <ul class="dropdown-content" id="content-title">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Arts</a></li>
+          <li><a href="#">Business</a></li>
+          <li><a href="#">Sports</a></li>
+          <li><a href="#">Technology</a></li>
+          <li><a href="#">Fashion</a></li>
+        </ul>
       </div>
     </nav>
   </header>
