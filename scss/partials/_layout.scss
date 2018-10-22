@@ -15,20 +15,38 @@ body {
 header {
   background-color: $bg-color;
   padding: 0.875rem 0 1.625rem 0;
+  // height: 100vh;
   height: 260px;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  & p {
+    font-size: 0.8rem;
+    padding: 0.8rem;
+  }
+}
+
+.selected-sec {
+  @include phone {
+    height: 260px;
+    padding: 0.875rem 0 1.625rem 0;
+  }
+}
+
+select {
+  font-family: "Open Sans Light";
+  border: none;
+
+  &:focus {
+    outline: 0;
+  }
 }
 
 .logo img {
   max-height: 150px;
-}
-
-header p {
-  font-size: 0.8rem;
 }
 
 .navbar {
@@ -48,26 +66,27 @@ header p {
   }
 }
 
+/*
 .dropdown {
   float: left;
   overflow: hidden;
 
   &.dropbtn {
-    /* cursor: pointer; */
+    cursor: pointer; 
     font-size: 1.125rem;
     border: none;
     outline: none;
     color: #000000;
     padding: 0.1rem 0.1rem 0.1rem 0.5rem;
-    /* background-color: inherit; */
+     background-color: inherit; 
   }
 }
 
-/* .navbar a:hover,
+ .navbar a:hover,
 .dropdown:hover .dropbtn,
 .dropbtn:focus {
   background-color: red;
-} */
+} 
 
 .dropdown-content {
   display: none;
@@ -90,6 +109,7 @@ header p {
     }
   }
 }
+*/
 
 .show {
   display: block;
