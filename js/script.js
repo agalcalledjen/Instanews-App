@@ -4,49 +4,63 @@ $(document).ready(function () {
   $('#select-options').on('change', function (event) {
     event.preventDefault(); // goes after sth happens, ie btn clicked.
 
-    const selectedSec = $(this).val(); // gets the text of what was inside of select-option
-    console.log(selectedSec);
+    const $displayNews = $('footer').before('<section class="news" />');
 
+    const sectionOptn = $(this).val(); // gets the text of what was inside of select-option
+    console.log(sectionOptn);
 
     // start of Ajax
     // Built by LucyBot. www.lucybot.com
     const apiKey = '613d5aa86a84492f8c259b2b58daa766';
-    const url = `https://api.nytimes.com/svc/topstories/v2/${selectedSec}.json?api-key=${apiKey}`;
+    const url = `https://api.nytimes.com/svc/topstories/v2/${sectionOptn}.json?api-key=${apiKey}`;
     console.log(url);
 
     $.ajax({
         url: url,
         method: 'GET',
         dataType: 'json',
-        // section: selected,
+        section: sectionOptn,
+
         // num_results: 12,
-        data: {
-          num_results: 12,
-        },
+        // data: {
+        //   num_results: 12,
+        // },
       })
       .done(function (data) {
-        // console.log(data);
+        console.log(data);
 
         // $results.empty(); // 
 
-        const abstract = data.results[0].abstract;
+        // const newsAbstract = data.results[0].abstract;
+        // console.log(newsAbstract);
 
-        // const displayNews = '<section>';
-        // $.each(data.results, function (index, value) {
-        //   if (index > 11) {
-        //     return false;
-        //   }
+        // const newsImg = data.results[0].multimedia[4].url;
+        // console.log(newsImg);
 
-        //   // displayNews += '<article>'
-        //   $('section').append('<article>' + `<img src="${data.results[0].multimedia[0]}"/>` +
-        //     '<p class="description">' + data.results[0].abstract + '</p></article></section>');
-        // });
+        // const newsLink = data.results[0].url;
+        // console.log(newsLink);
+
+        $('.news').empty();
+
+        // run data through filter first before putting it in the each loop since we only want the articles with pictures.
+        let articles = data.results.filter(function (item) {
+          return item.multimedia.length;
+        });
+
+        articles = articles.slice(0, 12);
+
+        $.each(articles, function (index, value) {
 
 
-        // })
-        // .fail(function (err) {
-        //   throw err;
+          // $('.news').append(`<article><a href="${data.results[index].url}" target="_blank"><img src="${data.results[index].multimedia[4].url}"/><p class="description">${data.results[index].abstract}</p></article>`);
+
+
+          $('.news').append(`<article><a href="${value.url}" target="_blank"><div class="newsImg" style="background-image: url(${value.multimedia[4].url});"/><p class="description">${value.abstract}</p></article>`);
+
+        });
+      })
+      .fail(function (err) {
+        throw err;
       }); // end of Ajax
-
   }); // end of options
 }); // end of ready
