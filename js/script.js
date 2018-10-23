@@ -5,6 +5,7 @@ $(document).ready(function () {
     event.preventDefault(); // goes after sth happens, ie btn clicked.
 
     $('header').addClass('shrink');
+    $('.logo img').attr('style="max-height: $logo-sz;"');
 
     const $displayNews = $('footer').before('<section class="news" />');
 
