@@ -4,6 +4,8 @@ $(document).ready(function () {
   $('#select-options').on('change', function (event) {
     event.preventDefault(); // goes after sth happens, ie btn clicked.
 
+    $('header').addClass('shrink');
+
     const $displayNews = $('footer').before('<section class="news" />');
 
     const sectionOptn = $(this).val(); // gets the text of what was inside of select-option
@@ -20,16 +22,14 @@ $(document).ready(function () {
         method: 'GET',
         dataType: 'json',
         section: sectionOptn,
-
-        // num_results: 12,
-        // data: {
-        //   num_results: 12,
-        // },
       })
       .done(function (data) {
         console.log(data);
 
-        // $results.empty(); // 
+        // $displayNews.empty();
+
+
+        // $displayNews.empty(); // 
 
         // const newsAbstract = data.results[0].abstract;
         // console.log(newsAbstract);
@@ -40,13 +40,13 @@ $(document).ready(function () {
         // const newsLink = data.results[0].url;
         // console.log(newsLink);
 
-        $('.news').empty();
 
-        // run data through filter first before putting it in the each loop since we only want the articles with pictures.
+
+        // run data through filter first before putting it in the each loop since we only want the articles with pictures.e
         let articles = data.results.filter(function (item) {
           return item.multimedia.length;
         });
-
+        // only pick index from array of 0 - 11
         articles = articles.slice(0, 12);
 
         $.each(articles, function (index, value) {

@@ -57,8 +57,14 @@
 
 p {
   margin: 0;
+  color: $base-font-color;
 }
 
 a {
   text-decoration: none;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: red;
 }
