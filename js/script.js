@@ -3,9 +3,11 @@ $(document).ready(function () {
   // start of select options
   $('#select-options').on('change', function (event) {
     event.preventDefault(); // goes after sth happens, ie btn clicked.
+    // const load = $('header').prepend('<img src="../assets/images/nyt-lolo.svg" class="loading"/>');
 
+    // // $('.loading').remove();
     $('header').addClass('shrink');
-    $('.logo img').attr('style="max-height: $logo-sz;"');
+    $('#logo').addClass('shrink-logo');
 
     const $displayNews = $('footer').before('<section class="news" />');
 
@@ -56,7 +58,7 @@ $(document).ready(function () {
           // $('.news').append(`<article><a href="${data.results[index].url}" target="_blank"><img src="${data.results[index].multimedia[4].url}"/><p class="description">${data.results[index].abstract}</p></article>`);
 
 
-          $('.news').append(`<article><a href="${value.url}" target="_blank"><div class="newsImg" style="background-image: url(${value.multimedia[4].url});"/><p class="description">${value.abstract}</p></article>`);
+          $('.news').append(`<article><a href="${value.url}" target="_blank"><div class="newsImg" style="background-image: url(${value.multimedia[4].url});"><p class="description">${value.abstract}</p></div></a></article>`);
 
         });
       })

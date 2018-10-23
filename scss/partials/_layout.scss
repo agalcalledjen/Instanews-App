@@ -15,48 +15,90 @@ body {
 header {
   background-color: $bg-color;
   // height: 100vh;
-  height: 90vh;
-
+  height: 85vh;
+  padding-top: $base-padding * 2;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  @include flex();
 
-  p {
-    font-size: $base-font-sz * 0.8;
-    padding: $base-font-sz;
+  @include tablet {
+    @include flex(row, left);
   }
 }
 
 .shrink {
+  height: $header-ht;
   padding: 0.875rem 0 1.625rem 0;
-  // height: 100vh;
-  height: 300px;
-}
 
-.selected-sec {
-  @include phone {
-    height: 260px;
-    padding: 0.875rem 0 1.625rem 0;
+  @include tablet {
+    height: $header-ht / 2.25;
+    padding: 0;
   }
 }
 
-.logo img {
-  max-height: $logo-sz * 2;
-}
-
-// .shrink-img {
-//   max-height: $logo-sz;
+// .selected-sec {
+//   @include phone {
+//     height: 260px;
+//     padding: 0.875rem 0 1.625rem 0;
+//   }
 // }
 
+.logo {
+  @include tablet {
+    padding-left: $base-padding * 6.25;
+  }
+
+  #logo {
+    max-height: $logo-sz * 2;
+
+    @include tablet {
+      max-height: $logo-sz / 1.15;
+    }
+  }
+}
+
+.shrink-logo {
+  height: $logo-sz;
+
+  @include tablet {
+    height: $logo-sz / 2.25;
+    padding-right: $base-padding * 4;
+  }
+}
+
+.navbar-frd {
+  display: flex;
+  @include flex;
+  // flex-direction: column;
+  // justify-content: center;
+  // align-items: center;
+
+  @include tablet {
+    padding: $base-padding * 1.25;
+  }
+
+  p {
+    font-size: $base-font-sz * 0.8;
+    padding: $base-padding 0px;
+
+    @include tablet {
+      font-size: $base-font-sz * 0.9;
+      padding: 0 0 $base-padding 0;
+    }
+  }
+}
+
 .navbar {
-  width: 25%;
+  // width: 25%;
   overflow: hidden;
   background-color: #ffffff;
   font-family: $base-font;
 
   border-radius: 0.375rem;
   border: 1px solid #c2c2c2;
+
+  // @include tablet {
+  //   align-self: left;
+  // }
 
   select {
     // font-family: sans-serif;
@@ -80,20 +122,47 @@ header {
 .news {
   article {
     width: 100%;
+    display: flex;
+    // flex: 0 1 100%;
+
+    // @include tablet {
+    //   flex: 0 1 50%;
+    // }
+
     height: 420px;
-    position: relative;
+
     z-index: 0;
+
+    // @include tablet {}
+
+    a {
+      @include tablet {
+        flex: 0 1 50%;
+      }
+    }
   }
 
-  div {
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    width: 100%;
-    height: 420px;
-    position: absolute;
-    z-index: 2;
-  }
+
+}
+
+.newsImg {
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  height: 420px;
+  position: absolute;
+  z-index: 2;
+
+  // @include tablet {
+  //   width: 100%;
+  //   /* position: absolute; */
+  //   display: flex;
+  //   justify-content: left;
+  //   align-items: flex-end;
+  //   /* flex: 0 1 50%; */
+  // }
 
   p {
     position: absolute;
@@ -106,10 +175,17 @@ header {
     background: rgb(0, 0, 0);
     /* fallback color */
     background: rgba(0, 0, 0, 0.6);
+
+    // @include tablet {
+    //   width: 100%;
+    //   /* position: absolute; */
+    //   display: flex;
+    //   justify-content: left;
+    //   align-items: flex-end;
+    //   /* flex: 0 1 50%; */
+    // }
   }
 }
-
-
 
 // .show {
 //   display: block;
@@ -117,13 +193,16 @@ header {
 
 // Footer
 footer {
-  height: 55px;
-  background-color: $bg-color;
-  padding: 1rem 0;
-  height: 10vh; // 60px
-  font-family: $base-font;
-  font-size: $base-font-sz * 0.9;
-  text-align: center;
+  background-color: #000;
+  /* padding: 1rem 0; */
+  height: 15vh;
+  font-family: Open Sans Light;
+  font-size: .9rem;
+  /* text-align: center; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* margin: 0px 0px 20px 0px; */
 
   p {
     color: $footer-txt-clr;

@@ -18,3 +18,9 @@
     @content;
   }
 }
+
+@mixin flex($flex-drtn: column, $justify: center, $align: center) {
+  flex-direction: $flex-drtn;
+  justify-content: $justify;
+  align-items: $align;
+}
