@@ -1,6 +1,6 @@
 /* Extra small devices (phones, 600px and down) */
 @mixin phone {
-  @media (max-width: $phone-width) {
+  @media (min-width: $phone-width) {
     @content;
   }
 }

@@ -1,5 +1,4 @@
 $(document).ready(function () {
-
   // $('.loading').show();
   // start of select options
   $('#select-options').on('change', function (event) {

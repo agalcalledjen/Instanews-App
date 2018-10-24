@@ -7,7 +7,7 @@ body {
   font-family: $base-font;
   /* look into why this is not working */
   font-size: $base-font-sz;
-  color: $base-font-clr;
+  color: $base-color;
   margin: 0 auto;
   background-color: $bg-color;
 }
@@ -93,7 +93,7 @@ header {
 
   @include desktop {
     align-items: flex-start;
-    padding-left: 2.5rem;
+    padding-left: $base-padding * 2.5;
   }
 
   p {
@@ -150,7 +150,7 @@ header {
   }
 
   article {
-    width: 100%;
+    width: $width;
     display: flex;
     height: 420px;
     z-index: 0;
@@ -168,7 +168,7 @@ header {
         position: relative;
         // display: flex;
         // height: 420px;
-        width: 100%;
+        width: $width;
       }
     }
   }
@@ -180,7 +180,7 @@ header {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  width: 100%;
+  width: $width;
   height: 420px;
   position: absolute;
   z-index: 2;
@@ -190,7 +190,7 @@ header {
     bottom: 0;
     z-index: 88;
     padding: 8px;
-    width: 100%;
+    width: $width;
 
     line-height: $base-font-sz * 1.5;
     background: rgb(0, 0, 0);
@@ -203,15 +203,14 @@ header {
 
 // Footer
 footer {
-  background-color: #000;
+  background-color: $bg-color;
   /* padding: 1rem 0; */
   height: 15vh;
-  font-family: Open Sans Light;
-  font-size: .9rem;
+  font-family: $base-font;
+  font-size: $base-font-sz * 0.9;
   /* text-align: center; */
   display: flex;
-  justify-content: center;
-  align-items: center;
+  @include flex;
   /* margin: 0px 0px 20px 0px; */
 
   p {
