@@ -23,6 +23,10 @@ header {
   @include tablet {
     @include flex(row, left);
   }
+
+  @include desktop {
+    padding-top: $base-padding;
+  }
 }
 
 .shrink {
@@ -47,11 +51,21 @@ header {
     padding-left: $base-padding * 6.25;
   }
 
+  @include desktop {
+    padding-left: $base-padding * 2;
+    padding-right: $base-padding * 3;
+  }
+
   #logo {
     max-height: $logo-sz * 2;
 
     @include tablet {
       max-height: $logo-sz / 1.15;
+    }
+
+    @include desktop {
+      max-height: $logo-sz * 2;
+      // padding-right: $base-padding * 5;
     }
   }
 }
@@ -63,6 +77,10 @@ header {
     height: $logo-sz / 2.25;
     padding-right: $base-padding * 4;
   }
+
+  @include desktop {
+    padding-right: 0;
+  }
 }
 
 .navbar-frd {
@@ -70,7 +88,12 @@ header {
   @include flex;
 
   @include tablet {
-    padding: $base-padding * 1.25;
+    padding: 0.5rem 1.25rem 1.25rem 1.25rem;
+  }
+
+  @include desktop {
+    align-items: flex-start;
+    padding-left: 2.5rem;
   }
 
   p {
@@ -79,7 +102,11 @@ header {
 
     @include tablet {
       font-size: $base-font-sz * 0.9;
-      padding: 0 0 $base-padding 0;
+      padding: 0 0 $base-padding*0.9 0;
+    }
+
+    @include desktop {
+      font-size: $base-font-sz;
     }
   }
 }
@@ -130,6 +157,10 @@ header {
 
     @include tablet {
       flex: 0 1 50%;
+    }
+
+    @include desktop {
+      flex: 0 1 25%;
     }
 
     a {

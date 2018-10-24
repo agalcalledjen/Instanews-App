@@ -64,13 +64,7 @@ a {
   text-decoration: none;
 }
 
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: red;
-}
-
 .loading {
-  // display: block;
   z-index: 888;
 
   img {
