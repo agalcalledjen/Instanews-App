@@ -3,7 +3,7 @@ $(document).ready(function () {
   // start of select options
   $('#select-options').on('change', function (event) {
     event.preventDefault();
-    $('.loading').append('<img src="./assets/images/ajax-loader.gif" alt="Loading Gif" class="loader"/>');
+    $('.loading').append('<img src="/assets/images/ajax-loader.gif" alt="Loading Gif" class="loader"/>');
 
     $('header').addClass('shrink');
     $('#logo').addClass('shrink-logo');
