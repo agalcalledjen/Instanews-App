@@ -1,15 +1,15 @@
 $(document).ready(function () {
 
+  // $('.loading').show();
   // start of select options
   $('#select-options').on('change', function (event) {
     event.preventDefault(); // goes after sth happens, ie btn clicked.
     // const load = $('header').prepend('<img src="../assets/images/nyt-lolo.svg" class="loading"/>');
+    $('.loading').append('<img src="../assets/images/ajax-loader.gif" alt="Loading Gif" class="loader"/>');
 
-    // // $('.loading').remove();
+    // $('.loader').fadeOut();
     $('header').addClass('shrink');
     $('#logo').addClass('shrink-logo');
-
-    const $displayNews = $('footer').before('<section class="news" />');
 
     const sectionOptn = $(this).val(); // gets the text of what was inside of select-option
     console.log(sectionOptn);
@@ -29,7 +29,7 @@ $(document).ready(function () {
       .done(function (data) {
         console.log(data);
 
-        // $displayNews.empty();
+        $('.news').empty();
 
 
         // $displayNews.empty(); // 
@@ -47,7 +47,7 @@ $(document).ready(function () {
 
         // run data through filter first before putting it in the each loop since we only want the articles with pictures.e
         let articles = data.results.filter(function (item) {
-          return item.multimedia.length;
+          return item.multimedia.length > 4;
         });
         // only pick index from array of 0 - 11
         articles = articles.slice(0, 12);
@@ -62,8 +62,15 @@ $(document).ready(function () {
 
         });
       })
-      .fail(function (err) {
+      .fail(function () {
         throw err;
+      })
+      .always(function () {
+        $('.loading').empty();
+        // to set time before empty is applied
+        // setTimeout(function () {
+        //   $('.loading').empty();
+        // }, 1000);
       }); // end of Ajax
   }); // end of options
 }); // end of ready
