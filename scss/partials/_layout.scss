@@ -5,7 +5,6 @@
 /* ------ Layout (Mobile-first: 480px) ------ */
 body {
   font-family: $base-font;
-  /* look into why this is not working */
   font-size: $base-font-sz;
   color: $base-color;
   margin: 0 auto;
@@ -39,13 +38,6 @@ header {
   }
 }
 
-// .selected-sec {
-//   @include phone {
-//     height: 260px;
-//     padding: 0.875rem 0 1.625rem 0;
-//   }
-// }
-
 .logo {
   @include tablet {
     padding-left: $base-padding * 6.25;
@@ -65,7 +57,6 @@ header {
 
     @include desktop {
       max-height: $logo-sz * 2;
-      // padding-right: $base-padding * 5;
     }
   }
 }
@@ -112,7 +103,6 @@ header {
 }
 
 .navbar {
-  // width: 25%;
   overflow: hidden;
   background-color: #ffffff;
   font-family: $base-font;
@@ -120,18 +110,10 @@ header {
   border-radius: 0.375rem;
   border: 1px solid #c2c2c2;
 
-  // @include tablet {
-  //   align-self: left;
-  // }
-
   select {
-    // font-family: sans-serif;
     font-weight: bold;
     letter-spacing: 0.05rem;
     border: none;
-    // float: left;
-    /* font-size: 16px; */
-    /* color: white; */
     text-align: center;
 
     &:focus {
@@ -166,8 +148,6 @@ header {
     a {
       @include tablet {
         position: relative;
-        // display: flex;
-        // height: 420px;
         width: $width;
       }
     }
@@ -204,14 +184,11 @@ header {
 // Footer
 footer {
   background-color: $bg-color;
-  /* padding: 1rem 0; */
   height: 15vh;
   font-family: $base-font;
   font-size: $base-font-sz * 0.9;
-  /* text-align: center; */
   display: flex;
   @include flex;
-  /* margin: 0px 0px 20px 0px; */
 
   p {
     color: $footer-txt-clr;
