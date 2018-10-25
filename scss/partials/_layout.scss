@@ -93,7 +93,7 @@ header {
 
     @include tablet {
       font-size: $base-font-sz * 0.9;
-      padding: 0 0 $base-padding*0.9 0;
+      padding: 0 0 $base-padding * 0.9 0;
     }
 
     @include desktop {
@@ -152,8 +152,6 @@ header {
       }
     }
   }
-
-
 }
 
 .newsImg {
@@ -188,6 +186,7 @@ footer {
   font-family: $base-font;
   font-size: $base-font-sz * 0.9;
   display: flex;
+  align-items: center;
   @include flex;
 
   p {
@@ -195,10 +194,10 @@ footer {
   }
 
   @include desktop {
-    justify-content: left;
+    justify-content: center;
+    align-items: flex-start;
     padding-left: $base-padding * 2;
   }
-
 }
 
 // End of Footer
