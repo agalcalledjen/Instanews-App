@@ -1,48 +1,64 @@
-$(document).ready(function () {
+// shorthand for $(document).ready()
+$(function () {
 
   // start of select options
   $('#select-options').on('change', function (event) {
     event.preventDefault();
+
     $('.loading').append('<img src="./assets/images/ajax-loader.gif" alt="Loading Gif" class="loader"/>');
 
     $('header').addClass('shrink');
     $('#logo').addClass('shrink-logo');
 
+    // get select value
     const sectionOptn = $(this).val();
     console.log(sectionOptn);
 
-    // start of Ajax
+    getStories(sectionOptn);
+  }); // end of options
+
+  // start of getStories fx
+  function getStories(sectionOptn) {
     // Built by LucyBot. www.lucybot.com
     const apiKey = '613d5aa86a84492f8c259b2b58daa766';
     const url = `https://api.nytimes.com/svc/topstories/v2/${sectionOptn}.json?api-key=${apiKey}`;
-    console.log(url);
+    // console.log(url);
 
+    // start of Ajax
     $.ajax({
         url: url,
         method: 'GET',
         dataType: 'json',
         section: sectionOptn,
       })
-      .done(function (data) {
+      .done((data) => {
         console.log(data);
 
         $('.news').empty();
 
-        let articles = data.results.filter(function (item) {
+        // long form
+        // // filter for articles with pictures 
+        // let articles = data.results.filter((item) => {
+        //   return item.multimedia.length > 4;
+        // });
+        // // of the filtered articles, only show index of 0 - 11, ie 12 results.
+        // articles = articles.slice(0, 12);
+
+        // filter out articles with pictures and only show 12 of them
+        let articles = data.results.filter((item) => {
           return item.multimedia.length > 4;
-        });
-        articles = articles.slice(0, 12);
+        }).slice(0, 12);
 
-        $.each(articles, function (index, value) {
+        // loop thru each article and add the following
+        for (let value of articles) {
           $('.news').append(`<article><a href="${value.url}" target="_blank"><div class="newsImg" style="background-image: url(${value.multimedia[4].url});"><p class="description">${value.abstract}</p></div></a></article>`);
-
-        });
+        };
       })
-      .fail(function () {
+      .fail(() => {
         console.log("There was an error and it is not fatal.");
       })
-      .always(function () {
+      .always(() => {
         $('.loading').empty();
       }); // end of Ajax
-  }); // end of options
+  }; // end of getStories fx
 }); // end of ready
