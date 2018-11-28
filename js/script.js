@@ -1,6 +1,7 @@
 $(function () {
 
   const loading = $('.loading');
+  const news = $('.news');
 
   // start of select options
   $('#select-options').on('change', function (event) {
@@ -31,7 +32,7 @@ $(function () {
         section: sectionOptn,
       })
       .done((data) => {
-        $('.news').empty();
+        news.empty();
 
         // filter out articles with pictures and only show 12 of them
         let articles = data.results.filter((item) => {
@@ -40,7 +41,7 @@ $(function () {
 
         // loop thru each article and add the following
         for (let value of articles) {
-          $('.news').append(`<article><a href="${value.url}" target="_blank"><div class="newsImg" style="background-image: url(${value.multimedia[4].url});"><p class="description">${value.abstract}</p></div></a></article>`);
+          news.append(`<article><a href="${value.url}" target="_blank"><div class="newsImg" style="background-image: url(${value.multimedia[4].url});"><p class="description">${value.abstract}</p></div></a></article>`);
         };
       })
       .fail(() => {
