@@ -1,11 +1,15 @@
 # Project 2 - Instanews App
 
+This is a responsive website that uses the New York Times API for filtering of top news story categories.
+
 This is a project produced from the following lessons from Week 3 to Week 4:
 
 1. Ajax, JSON, and APIs
 2. Gulp
 3. Sass / CSS Preprocessors
 4. CSS3 Transitions & Transforms
+
+![Image of Instanews](https://github.com/nejmal/project-02/blob/master/instanews.png)
 
 ---
 
@@ -19,6 +23,10 @@ git clone https://github.com/nejmal/project-02.git
 cd project-02
 ```
 3. Open the index.html file in a browser and read some interesting news!
+4. To run Gulp, copy and paste the below into a terminal.
+```
+npx gulp
+```
 
 ---
 

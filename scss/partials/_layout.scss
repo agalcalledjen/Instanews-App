@@ -136,6 +136,11 @@ header {
     display: flex;
     height: 420px;
     z-index: 0;
+    filter: grayscale(100%);
+
+    &:hover {
+      filter: grayscale(0%);
+    }
 
     @include tablet {
       flex: 0 1 50%;
@@ -195,10 +200,14 @@ footer {
   }
 
   @include desktop {
-    justify-content: left;
+    align-items: flex-start;
     padding-left: $base-padding * 2;
   }
 
+}
+
+.footer-news {
+  text-transform: uppercase;
 }
 
 // End of Footer
