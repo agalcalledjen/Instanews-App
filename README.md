@@ -4,7 +4,7 @@ This is an one-page responsive website that uses the New York Times API for filt
 
 ---
 
-![Image of Instanews](https://github.com/nejmal/Instanews-App/blob/master/instanews.png)
+![Image of Instanews](https://github.com/agalcalledjen/Instanews-App/blob/master/instanews.png)
 
 <p align="center"><img src="https://github.com/nejmal/Instanews-App/blob/master/instanews.gif"></p>
 
