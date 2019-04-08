@@ -1,6 +1,6 @@
 # Instanews App 📰
 
-This is an one-page responsive website that uses the New York Times API for filtering of top news story categories.
+This is an one-page [responsive website](https://agalcalledjen.github.io/Instanews-App/) that uses the New York Times API for filtering of top news story categories.
 
 ---
 
